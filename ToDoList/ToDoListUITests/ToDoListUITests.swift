@@ -33,4 +33,62 @@ class ToDoListUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testAddToDoItem() {
+        
+        let app = XCUIApplication()
+        
+        let cellsCount = app.cells.count
+        
+        let addButton = app.navigationBars["My To-Do Item"].buttons["Add"]
+        addButton.tap()
+        
+        let textField = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.TextField).element
+        textField.tap()
+        textField.typeText("Buy A New iPad.")
+        
+        let addToDoItemNavigationBar = app.navigationBars["Add To-Do Item"]
+        addToDoItemNavigationBar.buttons["Cancel"].tap()
+        
+        XCTAssertEqual(app.cells.count, cellsCount)
+        
+        addButton.tap()
+        textField.tap()
+        
+        let doneButton = addToDoItemNavigationBar.buttons["Done"]
+        doneButton.tap()
+        
+        XCTAssertEqual(app.cells.count, cellsCount)
+        
+        addButton.tap()
+        textField.tap()
+        textField.typeText("Buy an iPad\r")
+        doneButton.tap()
+        
+        
+        XCTAssertEqual(app.cells.count, cellsCount+1)
+    }
+    
+    func testCheckMack() {
+        
+        let tablesQuery = XCUIApplication().tables
+        let cell0 = tablesQuery.cells.elementBoundByIndex(0)
+        
+        let buyMilkStaticText = tablesQuery.staticTexts["Buy milk"]
+        
+        buyMilkStaticText.tap()
+        XCTAssertEqual(cell0.value as? String, "true")
+        
+        cell0.tap()
+        XCTAssertEqual(cell0.value as? String, "false")
+        
+        buyMilkStaticText.tap()
+        XCTAssertEqual(cell0.value as? String, "true")
+        
+        let buyEggStaticText = tablesQuery.staticTexts["Buy eggs"]
+            
+        buyEggStaticText.tap()
+        
+        
+        buyMilkStaticText.tap()
+    }
 }

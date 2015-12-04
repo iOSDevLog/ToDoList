@@ -51,6 +51,8 @@ class ToDoListVIewController: UITableViewController {
         let toDoItem = self.toDoItems[indexPath.row]
         cell.textLabel?.text = toDoItem.itemName
         
+        cell.accessibilityValue = String(toDoItem.completed)
+        
         if toDoItem.completed {
             cell.accessoryType = .Checkmark
         } else {

@@ -103,12 +103,12 @@
 			children = (
 				DEFAF4D91C0DEF1A00A883F8 /* AppDelegate.swift */,
 				DEFAF4DB1C0DEF1A00A883F8 /* AddToDoItemViewController.swift */,
+				DEA3B1F91C11DF0000A568AA /* ToDoListVIewController.swift */,
 				DEFAF4DD1C0DEF1A00A883F8 /* Main.storyboard */,
 				DEA3B1F71C11DE3C00A568AA /* ToDoItem.swift */,
 				DEFAF4E01C0DEF1A00A883F8 /* Assets.xcassets */,
 				DEFAF4E21C0DEF1A00A883F8 /* LaunchScreen.storyboard */,
 				DEFAF4E51C0DEF1A00A883F8 /* Info.plist */,
-				DEA3B1F91C11DF0000A568AA /* ToDoListVIewController.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";

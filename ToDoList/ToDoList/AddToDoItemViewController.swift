@@ -20,7 +20,7 @@ class AddToDoItemViewController: UIViewController {
         let sender = sender as! UIBarButtonItem
         
         if sender.isEqual(self.doneButton) {
-            if ((self.textField.text?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)) != nil) {
+            if (self.textField.text?.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0) {
                 self.toDoItem = ToDoItem()
                 self.toDoItem.itemName = self.textField.text!
                 self.toDoItem.completed = false
